@@ -8,6 +8,9 @@ DeepArch is an interactive, multi-level architecture visualization platform ("Go
 
 ## Commands
 
+### Dev Container
+Opening the repo in a dev container (VS Code "Reopen in Container" or GitHub Codespaces) runs `.devcontainer/post-create.sh`, which installs dependencies, creates `apps/backend/.env` with dev defaults, and applies Prisma migrations. Then just run `npm run dev`.
+
 ### Development
 ```bash
 npm run dev          # Start both backend and frontend concurrently

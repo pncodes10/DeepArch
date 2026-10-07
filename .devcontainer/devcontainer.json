@@ -1,0 +1,26 @@
+{
+  "name": "DeepArch",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+
+  // Frontend (Vite) and backend (Express + Socket.IO). The browser talks to
+  // both: /api goes through the Vite proxy, but the socket connects to :3001 directly.
+  "forwardPorts": [5173, 3001],
+  "portsAttributes": {
+    "5173": { "label": "Frontend", "onAutoForward": "openBrowser" },
+    "3001": { "label": "Backend API", "onAutoForward": "silent" }
+  },
+
+  // Installs dependencies, creates apps/backend/.env, and migrates the SQLite DB.
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Prisma.prisma",
+        "bradlc.vscode-tailwindcss",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  }
+}
